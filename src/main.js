@@ -75,16 +75,16 @@ const searchParamsDefaults = {
   searchForm.addEventListener('submit', event => {
     event.preventDefault();
     gallery.innerHTML = '';
-    loading.style.display = 'block';
     searchParamsDefaults.q = event.target.elements.search.value.trim();
     if (!searchParamsDefaults.q) {
       iziToast.warning({
         position: 'topRight',
         message:
-          'Please fill in the field!',
+          'Please, fill in the field!',
       });
       return;
     }
+    loading.style.display = 'block';
     const searchParams = new URLSearchParams(searchParamsDefaults);
     searchImg(searchParams);
     event.currentTarget.reset();
